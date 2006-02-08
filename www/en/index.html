@@ -28,6 +28,44 @@
 <tr align="left" valign="top"><td width="14"><img height="14" width="14" src="http://www.seasar.org/en/images/spacer.gif" alt=""></td><td width="740" class="main">
 <!-- don't edit end -->
 <!-- document start -->
-Now constructioning...
+<h3><a name="about">About Maihime</a></h3>
+<p>
+Eclipse plug-in to launch Tomcat quickly. You can also enable or disable the context of tomact, when checking or deselecting checkbox options.
+</p>
+<h3><a name="install">Install</a></h3>
+<p>
+Update site : <a href="http://maihime.sandbox.seasar.org/updates/">http://eclipse.seasar.org/updates/3.1/</a>
+</p>
+<h3><a name="prepare">Preparation before installs</a></h3>
+<h4>1.Install "Sysdeo Eclipse Tomcat Launcher plugin"</h4>
+<p>
+<a href="http://www.sysdeo.com/sysdeo/eclipse/tomcatplugin" target="_blank">http://www.sysdeo.com/sysdeo/eclipse/tomcatplugin</a>
+</p>
+<h4>2.Change "Context declaration mode"</h4>
+Window -> Preference
+<br>
+Preference -> Tomcat -> Context declaration mode
+<br>
+check "Context files".
+<br>
+<img src="../images/tomcat.gif"/>
+<h4>3.Edit the server.xml</h4>
+<p>
+When the contexts in TOMCAT_HOME\conf\server.xml overlaps with the contexts in TOMCAT_HOME\conf\Catalina\localhost , delete the contexts from TOMCAT_HOME\conf\server.xml. 
+</p>
+<h3><a name="usage">Usage</a></h3>
+<h4>1.Show Maihime view</h4>
+<img src="../images/showView1.gif"/>
+<br/>
+<img src="../images/showView2.gif"/>
+<br/>
+Select "Maihime".
+<h4>2.Checking or deselecting checkbox options. And launch Tomcat</h4>
+<img src="../images/maihime.gif"/>
+<h3><a name="requires">Requires plug-in</a></h3>
+<p>
+<a href="http://www.sysdeo.com/sysdeo/eclipse/tomcatplugin">Sysdeo Eclipse Tomcat Launcher</a>
+</p>
+
 </body>
-</html>
+</html>	

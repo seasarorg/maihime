@@ -21,6 +21,7 @@ import java.util.List;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
@@ -52,8 +53,8 @@ public class MaihimeView extends ViewPart {
 	}
 
 	public synchronized void layout() {
-		Color white = Display.getDefault().getSystemColor(SWT.COLOR_WHITE);
-		
+		 Color white = Display.getDefault().getSystemColor(SWT.COLOR_LIST_BACKGROUND);
+
 		if (this.composite != null) {
 			this.composite.dispose();
 		}
@@ -61,11 +62,11 @@ public class MaihimeView extends ViewPart {
 		ScrolledForm form = new ScrolledForm(this.parent);
 		this.composite = form;
 		form.setBackground(white);
-		Composite body =  form.getBody();
-		
+		Composite body = form.getBody();
+
 		body.setBackground(white);
 		body.setLayout(new GridLayout(1, true));
-		
+
 		Label label = new Label(body, SWT.READ_ONLY);
 		label.setText(Messages.getString("MaihimeView.check")); //$NON-NLS-1$
 		label.setBackground(white);
@@ -77,6 +78,12 @@ public class MaihimeView extends ViewPart {
 				continue;
 			}
 			Button checkbox = new Button(body, SWT.CHECK);
+			Color color = Display.getDefault().getSystemColor(SWT.COLOR_LIST_FOREGROUND);//COLOR_LIST_BACKGROUND
+			checkbox.setForeground(color);
+			Font font = label.getFont();
+//			font.
+			checkbox.setFont(font);
+//			checkbox.setFont(label.getFont()); // FIXME
 			checkbox.setText(xmls[i]);
 			checkbox.setBackground(white);
 			checkboxs.add(checkbox);
@@ -91,8 +98,9 @@ public class MaihimeView extends ViewPart {
 		Button refreshButton = new Button(body, SWT.NULL);
 		refreshButton.setText(Messages.getString("MaihimeView.refresh")); //$NON-NLS-1$
 		refreshButton.addSelectionListener(new RefreshButtonListener(this));
-		
-        this.parent.layout(true);
+
+		this.parent.layout(true);
+		this.parent.redraw();
 	}
 
 	public String getTitleToolTip() {
